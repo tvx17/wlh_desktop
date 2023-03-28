@@ -6,6 +6,12 @@
   "author": "tvx17",
   "private": true,
   "scripts": {
+    "p": "quasar dev -m pwa",
+    "pwa": "quasar dev -m pwa",
+    "build-pwa": "quasar build -m pwa",
+    "e": "quasar dev -m electron",
+    "electron": "quasar dev -m electron",
+    "build-electron": "quasar build -m electron",
     "lint": "eslint --ext .js,.vue ./",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0"
