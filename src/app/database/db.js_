@@ -1,0 +1,18 @@
+import Dexie from 'dexie';
+
+const db = new Dexie('wlh');
+db.version(1).stores({
+                       projects:         '++id, name, description, active, owner',
+                       users:            '++id, firstname, lastname, pseudonym, active',
+                       characters:       '++id, name, description, active',
+                       locations:        '++id, name, description, active',
+                       objects:          '++id, name, description, active',
+                       structure:        '++id, name, active, parent, type, lazy',
+                       structureTypes:   '++id, name, description, active, can_contain, can_contain_text',
+                       texts:            '++id, headline, text, active, parent',
+                       mapping:          '++id, [type+left_id+right_id],[type+left_id],[type+right_id],[left_id+right_id]',
+                       tableDescription: '++id, table, options'
+                     });
+
+export {db};
+export default db;

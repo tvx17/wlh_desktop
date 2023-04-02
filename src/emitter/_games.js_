@@ -1,0 +1,58 @@
+import constants from 'src/libs/constants';
+
+const emitters = {
+  gamesCheckGameExists:      (gid) => {
+    methods.message('Emitter: games.check.game_exists', 'info', `${constants._e}sessionsJoin`);
+    methods.emit('games.check.game_exists', {gid: gid});
+  }
+  gamesGetCardDeck:          () => {
+    methods.message('Emitter: games.get.card_deck', 'info', `${constants._e}cardDeckSend`);
+    methods.emit('games.get.card_deck', {});
+  },
+  gamesGetResults:           () => {
+    methods.message('Emitter: games.results.get', 'info', `${constants._e}resultsGet`);
+    methods.emit('games.get.results', {});
+  },
+  gamesGetJiraIssueFromJira: (jiraID) => {
+    methods.message('Emitter: games.get.jira_issue_from_jira', 'info', `${constants._e}gamesGetJiraIssueFromJira`);
+    methods.emit('games.get.jira_issue_from_jira', {jira_id: jiraID});
+  }
+  gamesPutStoryPointsToJira: (jiraId, storyPoints) => {
+    methods.message('Emitters -> games.put.story_points_to_jira', 'info', 'emittersGlobal -> gamesPutStoryPointsToJira');
+    methods.emit('games.put.story_points_to_jira', {
+      jira_id:      jiraId,
+      story_points: storyPoints
+    });
+  },
+
+  gamesCreateGame:              (gameName, cardDeck) => {
+    methods.message('Emitting: games.create.game', 'info', `${constants._e}gamesCreateGame`);
+    methods.emit('games.create.game', {
+      game_name: gameName,
+      card_deck: cardDeck
+    });
+  },
+  gamesDeleteGame:              (gameId) => {
+    methods.message('Emitting: games.delete.game', 'info', `${constants._e}gamesCreateGame`);
+    methods.emit('games.delete.game', {
+      game_id: gameId
+    });
+  },
+  gamesGetActiveGames:          () => {
+    methods.message('Emitter: games.get.active_games', 'info', `${constants._e}active_get`);
+    methods.emit('games.get.active_games', {});
+  },
+  gamesResetGame:               () => {
+    methods.message('Emitter: games.reset_game', 'info', `${constants._e}active_get`);
+    methods.emit('games.reset_game', {});
+  },
+  gamesResetVotes:              () => {
+    methods.message('Emitter: games.reset_votes', 'info', `${constants._e}active_get`);
+    methods.emit('games.reset_votes', {});
+  },
+  gamesGetJiraIssuesFromFilter: () => {
+    methods.message('Emitter: games.get.jira_issues_from_filter', 'info', `${constants._e}active_get`);
+    methods.emit('games.get.jira_issues_from_filter', {});
+  }
+};
+export {emitters};

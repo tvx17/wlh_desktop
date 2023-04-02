@@ -1,0 +1,10 @@
+import constants from 'src/libs/constants';
+
+const emitters = {
+  miscActionCloseResultsWindow: () => {
+    methods.message('Emitter: misc.action.close_results_window', 'info', `${constants._e}active_get`);
+    methods.emit('misc.action.close_results_window', {});
+  }
+};
+
+export {emitters};

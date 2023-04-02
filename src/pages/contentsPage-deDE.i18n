@@ -1,0 +1,7 @@
+export const language = {
+  contentType:    'Inhaltstyp',
+  structureTypes: 'Strukturtypen',
+  characters:     'Charaktere',
+  locations:      'Orte',
+  objects:        'Gegenstände'
+};

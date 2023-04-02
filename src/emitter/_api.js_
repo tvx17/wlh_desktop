@@ -1,0 +1,12 @@
+import {methods as m_log} from 'src/app/logging';
+
+const file = 'emitter\\api.js'
+
+const emitters = {
+  apiGetSettings: () => {
+    m_log.message(`Emitter: api -> connected`, 'info', `${file}:connected`, data);
+    methods.emit('api.settings', {method: 'get'});
+  }
+};
+
+export {emitters}
