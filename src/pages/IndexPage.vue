@@ -8,10 +8,10 @@
   </q-page>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup>
+import {onMounted}               from 'vue';
 
-export default defineComponent({
-  name: 'IndexPage'
-})
+onMounted(() => {
+
+});
 </script>
