@@ -9,7 +9,16 @@ const file = 'app\\connection.js';
 
 
 export const methods = {
-  emit:     async(module, section, data, method = 'post') => {
+  requestGet: async(url) => {
+    const response = await api['get'](url);
+    if(response.status === 200){
+      const data = response.data;
+      if(data.status === 200){
+        return data.data;
+      }
+    }
+  },
+  emit:       async(module, section, data, method = 'post') => {
     logging.message(`Emitting -> Module: ${module}, section: ${section}, method: ${method}`, 'info', file, 'emit', data);
     const response = await api[method](`${module}/${section}`, data).catch((error) => {
       console.error(error);
@@ -18,7 +27,7 @@ export const methods = {
       return response.data;
     }
   },
-  checkApi: () => {
+  checkApi:   () => {
     api['get']('is_alive').then(
       (response) => {
         clearInterval(connectionListener);

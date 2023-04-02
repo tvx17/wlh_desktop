@@ -21,8 +21,6 @@
 
 <script setup>
 import {onMounted, ref, watch} from 'vue';
-import requests                from 'src/app/data/requests';
-import tables                  from 'src/app/types/tables';
 
 const props = defineProps(['dialogVisible', 'id']);
 const emits = defineEmits(['saved', 'visible']);
@@ -37,10 +35,10 @@ watch(() => props.dialogVisible, (newValue, oldValue) => {
 
 const m = {
   load: async() => {
-    v_data.value = await requests.getBy(tables.Characters, 'id', props.id);
+    // v_data.value = await requests.getBy(tables.Characters, 'id', props.id);
   },
   save: async() => {
-    await requests.update(tables.Characters, props.id, v_data.value);
+    // await requests.update(tables.Characters, props.id, v_data.value);
     emits('visible', false);
   }
 };

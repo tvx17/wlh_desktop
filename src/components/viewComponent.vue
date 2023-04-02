@@ -66,9 +66,8 @@
 
 <script setup>
 import {onMounted, ref, watch} from 'vue';
-import requests                from 'src/app/data/requests';
-import tables                  from 'src/app/types/tables';
 import {useQuasar}             from 'quasar';
+import connection              from 'src/app/connection';
 
 import characterEdit from 'src/components/editComponents/characterEditComponent.vue';
 import objectEdit    from 'src/components/editComponents/objectsEditComponent.vue';
@@ -85,12 +84,13 @@ const $q = useQuasar();
 const m = {
   changeVisibility: async(isVisible) => {
     v_dialog_visible.value = isVisible;
-    v_data_items.value     = await requests.getAll(props.options.datatableName);
+    // v_data_items.value     = await requests.getAll(props.options.url);
   },
   load:             async() => {
-    const test            = await requests.getBy(tables.TableDescription, 'table', props.options.datatableName);
-    v_table_columns.value = test['options'];
-    v_data_items.value    = await requests.getAll(props.options.datatableName);
+    const data = await connection.requestGet('character/all');
+    // const test            = await requests.getBy(tables.TableDescription, 'table', props.options.url);
+    // v_table_columns.value = test['options'];
+    // v_data_items.value    = await requests.getAll(props.options.url);
   },
   new:              () => {
     $q.dialog({
@@ -103,10 +103,10 @@ const m = {
                 cancel:     true,
                 persistent: true
               }).onOk(async data => {
-      await requests.new(props.options.datatableName, {
-        name:   data,
-        active: true
-      });
+      // await requests.new(props.options.url, {
+      //   name:   data,
+      //   active: true
+      // });
       await m.load();
     });
   },

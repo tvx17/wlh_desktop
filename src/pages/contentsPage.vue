@@ -40,9 +40,9 @@
 </template>
 
 <script setup>
-import {onMounted, ref}        from 'vue';
-import structureTypesComponent from 'components/contentsPage/structureTypesComponent.vue';
-import viewComponent           from 'src/components/viewComponent.vue';
+import {onMounted, ref} from 'vue';
+// import structureTypesComponent from 'components/contentsPage/structureTypesComponent.vue';
+import viewComponent    from 'src/components/viewComponent.vue';
 
 const m = {
   showComponent: (componentName) => {
@@ -52,7 +52,7 @@ const m = {
         break;
       case 'characters':
         v_componentOptions.value = {
-          datatableName:      'characters',
+          url:                'character',
           componentTitle:     'Charaktere',
           dialogNewItemTitle: 'Neuer Charakter',
           dialogNewItemText:  'Name des neuen Charakters'
@@ -61,7 +61,7 @@ const m = {
         break;
       case 'locations':
         v_componentOptions.value = {
-          datatableName:      'locations',
+          url:                'location',
           componentTitle:     'Orte',
           dialogNewItemTitle: 'Neuer Ort',
           dialogNewItemText:  'Name des neuen Orts'
@@ -70,7 +70,7 @@ const m = {
         break;
       case 'objects':
         v_componentOptions.value = {
-          datatableName:      'objects',
+          url:                'object',
           componentTitle:     'Objekte',
           dialogNewItemTitle: 'Neues Objekt',
           dialogNewItemText:  'Name des neuen Objekts'
@@ -82,7 +82,7 @@ const m = {
 };
 
 const v_componentOptions = ref({});
-const v_currentComponent = ref(structureTypesComponent);
+const v_currentComponent = ref();
 const v_splitter         = ref(20);
 
 

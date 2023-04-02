@@ -42,7 +42,7 @@ const m = {
     switch(componentName){
       case 'projects':
         v_componentOptions.value = {
-          datatableName:      'projects',
+          url:                'project',
           componentTitle:     'Projekte',
           dialogNewItemTitle: 'Neues Projekt',
           dialogNewItemText:  'Name des neuen Projekts'
@@ -51,7 +51,7 @@ const m = {
         break;
       case 'users':
         v_componentOptions.value = {
-          datatableName:      'users',
+          url:                'user',
           componentTitle:     'Benutzer/-innen',
           dialogNewItemTitle: 'Neue Benutzerin / neuer Benutzer',
           dialogNewItemText:  'Name des neuen Benutzers /der neuen Benutzerin'
@@ -63,7 +63,7 @@ const m = {
 };
 
 const v_componentOptions = ref({
-                                 datatableName:      'projects',
+                                 url:                'project',
                                  componentTitle:     'Projekte',
                                  dialogNewItemTitle: 'Neues Projekt',
                                  dialogNewItemText:  'Name des neuen Projekts'
